@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(126, 152, 141);
+}
+#head-card{
+    background-color: rgb(255, 218, 147);
+}
+#today-forecast{
+    background-color: rgb(190, 130, 148);
+}
+#list-1{
+    background-color: rgb(162, 176, 153);
+}
+#list-2{
+    background-color: rgb(222, 191, 137);
+}
+#list-3{
+    background-color: rgb(255, 218, 147);
+}
+#list-4{
+    background-color: rgb(251, 170, 125);
+}
+#list-5{
+    background-color: rgb(190, 130, 148);
+}
+#forecast-card-1{
+    background-color: rgb(162, 176, 153);
+}
+#forecast-card-2{
+    background-color: rgb(222, 191, 137);
+}
+#forecast-card-3{
+    background-color: rgb(255, 218, 147);
+}
+#forecast-card-4{
+    background-color: rgb(251, 170, 125);
+}
+#forecast-card-5{
+    background-color: rgb(190, 130, 148);
+}
+.map{
+    background-color: rgb(162, 176, 153);
+}
