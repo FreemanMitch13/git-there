@@ -27,7 +27,6 @@
                     <div class="card-body" id="today-forecast">
                         <h5 class="card-title">Today's Local Forecast</h5>
                         <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -37,9 +36,9 @@
             <div class="col-lg-3 mt-2">
                 <form>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Destination...">
+                        <input type="email" class="form-control destinationSearch" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Destination...">
                     </div>
-                    <button type="submit" class="btn btn-primary">Show Me!</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">Show Me!</button>
                 </form>
                 <div class="list-group mt-2">
                     <a href="#" class="list-group-item list-group-item-action" id="list-1">Most recent search</a>
@@ -54,7 +53,8 @@
                 <div class="card" style="width: 42rem; height: 30rem;">
                     <div class="card-body">
                         <h5 class="card-title">This is where the map goes</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <div id="location"></div>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
