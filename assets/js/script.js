@@ -2,7 +2,7 @@
 const weatherApiKey = "1ad4965b69077cc77a3ec509434002cd";
 
 //Google API Key
-const mapApiKey = "AIzaSyCKB4f8DEdLTxjvjdKe2j19VtWeW02ghX4"
+const mapApiKey = "AIzaSyCKB4f8DEdLTxjvjdKe2j19VtWeW02ghX4";
 
 //api to get lat and lon
 function getApi(search) {
@@ -25,4 +25,14 @@ function getLatLon(location) {
     var { lat, lon } = location;
     var city = location.name;
     var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${apiKey}`;
+}
+
+function getGoogle() {
+    var googleLat ;
+    var googleLon ;
+    var googleUrl = `https://maps.googleapis.com/maps/api/directions/JSON?&origin=${googleLat},${googleLon}&key=${mapApiKey}`;
+    fetch(googleUrl)
+    .then(function (response) {
+        console.log(response);
+    })
 }
