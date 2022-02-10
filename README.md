@@ -2,7 +2,7 @@
 Using the Google maps API and the Open Weather Map API, the user will be able to search a location to review local traffic and weather information. Future development could include food choices. 
 
 ## Live Links
-* Published: 
+* Published: https://freemanmitch13.github.io/git-there/ 
 * Repository: https://github.com/FreemanMitch13/git-there
 
 ## Description
@@ -31,6 +31,8 @@ The following animation demonstrates the application functionality:
 * Sandra Smith
 * Christopher Ponzio https://github.com/ChristopherPonzio
 * Mitchell Freeman https://github.com/FreemanMitch13
+* Harrison Kane https://github.com/FNH57
+* Michelle Blackwell https://github.com/mblackwellgca
 
 ## License
 MIT License
