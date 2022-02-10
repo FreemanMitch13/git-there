@@ -3,24 +3,37 @@ body{
 }
 #head-card{
     background-color: rgb(255, 218, 147);
+    text-align: center;
+    font-weight: bolder;
+    font-size: x-large;
+    color: rgb(126, 152, 141);
+}
+#head-card h5{
+    font-size: xx-large;
+    text-decoration: underline;
 }
 #today-forecast{
     background-color: rgb(190, 130, 148);
 }
 #list-1{
     background-color: rgb(162, 176, 153);
+    color: white;
 }
 #list-2{
     background-color: rgb(222, 191, 137);
+    color: white;
 }
 #list-3{
     background-color: rgb(255, 218, 147);
+    color: white;
 }
 #list-4{
     background-color: rgb(251, 170, 125);
+    color: white;
 }
 #list-5{
     background-color: rgb(190, 130, 148);
+    color: white;
 }
 #forecast-card-1{
     background-color: rgb(162, 176, 153);
