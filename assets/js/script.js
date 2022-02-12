@@ -33,7 +33,7 @@ function showError(error){
 }
 getLocation();
 
-const mapApiKey = "AIzaSyCKB4f8DEdLTxjvjdKe2j19VtWeW02ghX4";
+
 
 //api to get lat and lon
 function getApi(search) {
