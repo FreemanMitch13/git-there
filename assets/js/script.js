@@ -12,6 +12,7 @@ var search ;
 
 function handleSubmit(event) {
     event.preventDefault();
+    // document.getElementsById('fiveDayCards').innerHTML = "";
     search = searchInput.value.trim();
     searchInput.value = "";
     console.log(search);
@@ -67,6 +68,50 @@ function getLatLon(location) {
             // document.getElementById('feels-like').innerHTML += data.current.feels_like;
             // document.getElementById('humidity').innerHTML += data.current.humidity;
             // document.getElementById('windSpeed').innerHTML += data.current.wind_speed;
+
+        let fiveDayForecast = document.querySelectorAll('div[id^=forecast-card]');
+
+        console.log(fiveDayForecast);
+        console.log(fiveDayForecast.length);
+        console.log(fiveDayForecast[0]);
+
+        for (var i=0; i<fiveDayForecast.length; i++){
+
+            const currentDate = new Date(data['current']['dt'] * 1000);
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1;
+            const year = currentDate.getFullYear();
+            let date= month + '/' + day + '/' + year;
+            
+            let dayImg = data.current.weather[0].icon;
+            let dayImgEl = document.createElement('img');
+            dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
+            dayImgEl.setAttribute('alt', data.current.weather[0].description);
+
+            let dateEl = document.createElement('h5');
+            // let iconEl = document.createElement('a');
+            let currentTempEl = document.createElement('p');
+            let feelsLikeEl = document.createElement('p');
+            let humidityEl = document.createElement('p');
+            let windSpeedEl = document.createElement('p');
+
+            dateEl.textContent = date
+            // iconEl=dayImgEl
+            currentTempEl.textContent = "Current Temp: " + data.current.temp;
+            feelsLikeEl.textContent = "Feels Like: " + data.current.feels_like;
+            humidityEl.textContent = "Humidity: " + data.current.humidity;
+            windSpeedEl.textContent= "Wind Speed: " + data.current.wind_speed;
+            
+            fiveDayForecast[i].innerHTML = "";
+            fiveDayForecast[i].append(dateEl);
+            fiveDayForecast[i].append(dayImgEl);
+            fiveDayForecast[i].append(currentTempEl);
+            fiveDayForecast[i].append(feelsLikeEl);
+            fiveDayForecast[i].append(humidityEl);
+            fiveDayForecast[i].append(windSpeedEl);
+        }
+
+
 })
 }
 
