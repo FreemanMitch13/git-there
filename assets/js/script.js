@@ -75,14 +75,15 @@ getLocation();
 function googleCall(){
     var googleApi = document.createElement("iframe")
     googleApi.setAttribute("id", "myIframe");
-    googleApi.setAttribute("width", "600");
-    googleApi.setAttribute("height", "450");
+    googleApi.setAttribute("width", "auto");
+    googleApi.setAttribute("height", "auto");
     googleApi.setAttribute("style", "border:0");
     googleApi.setAttribute("loading", "lazy");
-    googleApi.setAttribute("src", "https://www.google.com/maps/embed/v1/directions?zoom=6&center=32.1656%2C-82.9001&key=AIzaSyAneS2VJ_2d2al5EKqjrgbiQVKosCtfJA0"
+    googleApi.setAttribute("src", "https://www.google.com/maps/embed/v1/directions?zoom=8&key=AIzaSyAneS2VJ_2d2al5EKqjrgbiQVKosCtfJA0"
     + "&origin=My%20Location" 
     + "&destination=" + search);
     gMap.append(googleApi);
+    console.log(googleCall)
    }
 
 
