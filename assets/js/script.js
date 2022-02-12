@@ -14,7 +14,6 @@ function handleSubmit(event) {
     event.preventDefault();
     search = searchInput.value.trim();
     searchInput.value = "";
-    console.log(search);
     localStorage.setItem("search", search);
     getApi(search);
     googleCall(); 
@@ -23,7 +22,7 @@ function handleSubmit(event) {
 
 function renderHistory() {
     var searchHistory = localStorage.getItem("search");
-    console.log(searchHistory);
+    
    // for (var i = 0; i < searchHistory.length; i++) {
         const historyItem = document.createElement("button");
         historyItem.setAttribute("type", "button");
@@ -89,22 +88,19 @@ function getLatLon(location) {
 
         let fiveDayForecast = document.querySelectorAll('div[id^=forecast-card]');
 
-        console.log(fiveDayForecast);
-        console.log(fiveDayForecast.length);
-        console.log(fiveDayForecast[0]);
-
+    
         for (var i=0; i<fiveDayForecast.length; i++){
 
-            const currentDate = new Date(data['current']['dt'] * 1000);
+            const currentDate = new Date(data.daily[i]['dt'] * 1000);
             const day = currentDate.getDate();
             const month = currentDate.getMonth() + 1;
             const year = currentDate.getFullYear();
-            let date= month + '/' + day + '/' + year;
+            let date= search + "  " + month + '/' + day + '/' + year;
             
-            let dayImg = data.current.weather[0].icon;
+            let dayImg = data.daily[i].weather[0].icon;
             let dayImgEl = document.createElement('img');
             dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
-            dayImgEl.setAttribute('alt', data.current.weather[0].description);
+            dayImgEl.setAttribute('alt', data.daily[i].weather[0].description);
 
             let dateEl = document.createElement('h5');
             // let iconEl = document.createElement('a');
@@ -115,10 +111,10 @@ function getLatLon(location) {
 
             dateEl.textContent = date
             // iconEl=dayImgEl
-            currentTempEl.textContent = "Current Temp: " + data.current.temp;
-            feelsLikeEl.textContent = "Feels Like: " + data.current.feels_like;
-            humidityEl.textContent = "Humidity: " + data.current.humidity;
-            windSpeedEl.textContent= "Wind Speed: " + data.current.wind_speed;
+            currentTempEl.textContent = "Current Temp: " + k2f(data.daily[i].temp.day) + " ℉";
+            feelsLikeEl.textContent = "Feels Like: " + k2f(data.daily[i].feels_like.day) + " ℉";
+            humidityEl.textContent = "Humidity: " + data.daily[i].humidity + "%";
+            windSpeedEl.textContent= "Wind Speed: " + data.daily[i].wind_speed + " MPH";
             
             fiveDayForecast[i].innerHTML = "";
             fiveDayForecast[i].append(dateEl);
@@ -131,6 +127,10 @@ function getLatLon(location) {
 
 
 })
+}
+
+function k2f(K) {
+    return Math.floor((K - 273.15) * 1.8 + 32);
 }
 
 //GEO Location
@@ -152,11 +152,8 @@ function showPosition(position) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
-            console.log(data.current);
-            console.log(data.current.weather[0].icon);
-
-            const currentDate = new Date(data['current']['dt'] * 1000);
+            
+const currentDate = new Date(data['current']['dt'] * 1000);
             const day = currentDate.getDate();
             const month = currentDate.getMonth() + 1;
             const year = currentDate.getFullYear();
@@ -168,10 +165,10 @@ function showPosition(position) {
 
             document.getElementById('date').innerHTML = date;
             document.getElementById('icon').append(dayImgEl);
-            document.getElementById('currentWeather').innerHTML += data.current.temp;
-            document.getElementById('feels-like').innerHTML += data.current.feels_like;
-            document.getElementById('humidity').innerHTML += data.current.humidity;
-            document.getElementById('windSpeed').innerHTML += data.current.wind_speed;
+            document.getElementById('currentWeather').innerHTML += k2f(data.current.temp) + " &#176F";
+            document.getElementById('feels-like').innerHTML += k2f(data.current.feels_like) + " &#176F";
+            document.getElementById('humidity').innerHTML += data.current.humidity + "%";
+            document.getElementById('windSpeed').innerHTML += data.current.wind_speed + " MPH";
 })
 }
 
@@ -194,7 +191,6 @@ function googleCall(){
     + "&origin=My%20Location" 
     + "&destination=" + search);
     gMap.append(googleApi);
-    console.log(googleCall)
    }
 
 
