@@ -15,33 +15,42 @@ function handleSubmit(event) {
     search = searchInput.value.trim();
     searchInput.value = "";
     console.log(search);
+    getApi(search);
    googleCall(); 
 }
 
 
 
-// //api to get lat and lon for weather
-// function getApi(search) {
-//     var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=${apiKey}`;
-//     fetch(requestUrl)
-//     .then(function (response){
-//         return response.json();
-//     })
-//     .then(function (data){
-//         cityNameValue = data[0]["name"];
-//         console.log(data);
-//         getLatLon(data[0]);
-//     })
-//     .catch( error => console.log(error) )
-//     .finally( console.log('finished with fetch') )
-// }
+//api to get lat and lon for weather
+function getApi(search) {
+    var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=${weatherApiKey}`;
+    fetch(requestUrl)
+    .then(function (response){
+        return response.json();
+    })
+    .then(function (data){
+        cityNameValue = data[0]["name"];
+        console.log(data);
+        getLatLon(data[0]);
+    })
+    .catch( error => console.log(error) )
+    .finally( console.log('finished with fetch') )
+}
 
 
-// function getLatLon(location) {
-//     var { lat, lon } = location;
-//     var city = location.name;
-//     var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${apiKey}`;
-// }
+function getLatLon(location) {
+    var { lat, lon } = location;
+    var city = location.name;
+    var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${weatherApiKey}`;
+
+    fetch(latLonUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+})
+}
 
 //GEO Location
 function getLocation(){
