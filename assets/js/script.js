@@ -21,6 +21,7 @@ function handleSubmit(event) {
 
 
 
+
 //api to get lat and lon for weather
 function getApi(search) {
     var requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=${weatherApiKey}`;
@@ -42,13 +43,30 @@ function getLatLon(location) {
     var { lat, lon } = location;
     var city = location.name;
     var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${weatherApiKey}`;
-
+    
     fetch(latLonUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data)
+
+            const currentDate = new Date(data['current']['dt'] * 1000);
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1;
+            const year = currentDate.getFullYear();
+            let date= month + '/' + day + '/' + year;
+            let dayImg = data.current.weather[0].icon;
+            let dayImgEl = document.createElement('img');
+            dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
+            dayImgEl.setAttribute('alt', data.current.weather[0].description);
+
+            // document.getElementById('date').innerHTML = date;
+            // document.getElementById('icon').append(dayImgEl);
+            // document.getElementById('currentWeather').innerHTML += data.current.temp;
+            // document.getElementById('feels-like').innerHTML += data.current.feels_like;
+            // document.getElementById('humidity').innerHTML += data.current.humidity;
+            // document.getElementById('windSpeed').innerHTML += data.current.wind_speed;
 })
 }
 
@@ -63,7 +81,37 @@ function getLocation(){
 function showPosition(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude; 
+
+    var latLonUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${weatherApiKey}`;
+    
+    fetch(latLonUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+            console.log(data.current);
+            console.log(data.current.weather[0].icon);
+
+            const currentDate = new Date(data['current']['dt'] * 1000);
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1;
+            const year = currentDate.getFullYear();
+            let date= month + '/' + day + '/' + year;
+            let dayImg = data.current.weather[0].icon;
+            let dayImgEl = document.createElement('img');
+            dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
+            dayImgEl.setAttribute('alt', data.current.weather[0].description);
+
+            document.getElementById('date').innerHTML = date;
+            document.getElementById('icon').append(dayImgEl);
+            document.getElementById('currentWeather').innerHTML += data.current.temp;
+            document.getElementById('feels-like').innerHTML += data.current.feels_like;
+            document.getElementById('humidity').innerHTML += data.current.humidity;
+            document.getElementById('windSpeed').innerHTML += data.current.wind_speed;
+})
 }
+
 function showError(error){
     if(error.PERMISSION_DENIED){
         div.innerHTML = "The user have denied the request for Geolocation.";

@@ -53,3 +53,8 @@ body{
 .map{
     background-color: rgb(162, 176, 153);
 }
+.localWeatherCard{
+    background-color: white;
+    line-height: 14px;
+    font-size: medium;
+}
