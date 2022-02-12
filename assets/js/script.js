@@ -12,12 +12,30 @@ var search ;
 
 function handleSubmit(event) {
     event.preventDefault();
-    // document.getElementsById('fiveDayCards').innerHTML = "";
     search = searchInput.value.trim();
     searchInput.value = "";
     console.log(search);
+    localStorage.setItem("search", search);
     getApi(search);
-   googleCall(); 
+    googleCall(); 
+    renderHistory();
+}
+
+function renderHistory() {
+    var searchHistory = localStorage.getItem("search");
+    console.log(searchHistory);
+   // for (var i = 0; i < searchHistory.length; i++) {
+        const historyItem = document.createElement("button");
+        historyItem.setAttribute("type", "button");
+        historyItem.setAttribute("class", "historyBtn btn btn-primary mb-3");
+        historyItem.setAttribute("id", "");
+        historyItem.innerHTML = searchHistory;
+        $('#historyEl').append(historyItem);
+       // historyItem.addEventListener("click", function() {
+
+       // })
+       // }  
+
 }
 
 
