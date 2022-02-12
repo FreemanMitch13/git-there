@@ -13,7 +13,7 @@
 <body>
     <div class="container-fluid">
         <div class="row top">
-            <div class="col-lg-9">
+            <div class="col-lg-7">
                 <div class="card">
                     <div class="card-body" id="head-card">
                         <h5 class="card-title">Git There!</h5>
@@ -22,11 +22,18 @@
                 </div>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-5">
                 <div class="card">
                     <div class="card-body" id="today-forecast">
-                        <h5 class="card-title">Today's Local Forecast</h5>
-                        <p class="card-text"></p>
+                        <h5 class="card-title">Local Forecast:  </h5>
+                        <div class="localWeatherCard m-2">
+                          <p class="card-text ml-2" id="date"></p>
+                          <p class="card-text float-right mb-5 mr-5" id="icon"></p>
+                          <p class="card-text ml-2" id ='currentWeather'>Current Temp:  </p>
+                          <p class="card-text ml-2" id="feels-like"> Feels like:  </p>
+                          <p class="card-text ml-2" id="humidity">Humidity:  </p>
+                          <p class="card-text ml-2" id="windSpeed">Wind Speed:  </p>
+                        </div>
                     </div>
                 </div>
             </div>
