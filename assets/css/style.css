@@ -37,24 +37,44 @@ body{
 }
 #forecast-card-1{
     background-color: rgb(162, 176, 153);
+    border-color: rgb(255, 218, 147);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 218, 147);
+    transform: skewY(-1deg);
 }
 #forecast-card-2{
     background-color: rgb(222, 191, 137);
+    border-color: rgb(255, 218, 147);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 218, 147);
+    transform: skewY(-1deg);
 }
 #forecast-card-3{
     background-color: rgb(255, 218, 147);
+    border-color: rgb(255, 218, 147);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 218, 147);
+    transform: skewY(-1deg);
 }
 #forecast-card-4{
     background-color: rgb(251, 170, 125);
+    border-color: rgb(255, 218, 147);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 218, 147);
+    transform: skewY(-1deg);
 }
 #forecast-card-5{
     background-color: rgb(190, 130, 148);
+    border-color: rgb(255, 218, 147);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 218, 147);
+    transform: skewY(-1deg);
 }
 .map{
-    background-color: rgb(162, 176, 153);
+    background-color: rgb(126, 152, 141);
 }
 .localWeatherCard{
-    background-color: white;
+    background-color: rgb(238, 224, 228);
     line-height: 14px;
     font-size: medium;
     padding: 20px;
