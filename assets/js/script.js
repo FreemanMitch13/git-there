@@ -16,8 +16,18 @@ function handleSubmit(event) {
     searchInput.value = "";
     localStorage.setItem("search", search);
     getApi(search);
-    googleCall(); 
+    googleCall(search); 
     renderHistory();
+}
+function handleHistory(event) {
+    if (!event.target.matches('historyBtn')){
+        var btn = event.target;
+        search = btn.getAttribute('data-search');
+        console.log(search);
+        getApi(search);
+        googleCall(search);
+
+    }
 }
 
 function renderHistory() {
@@ -27,18 +37,11 @@ function renderHistory() {
         const historyItem = document.createElement("button");
         historyItem.setAttribute("type", "button");
         historyItem.setAttribute("class", "historyBtn btn btn-primary mb-3");
-        historyItem.setAttribute("id", "");
+        historyItem.setAttribute("data-search", searchHistory);
         historyItem.innerHTML = searchHistory;
         $('#historyEl').append(historyItem);
-       // historyItem.addEventListener("click", function() {
-
-       // })
-       // }  
 
 }
-
-
-
 
 //api to get lat and lon for weather
 function getApi(search) {
@@ -180,7 +183,7 @@ function showError(error){
 getLocation();
 
 // Google API Call
-function googleCall(){
+function googleCall(search){
     var googleApi = document.createElement("iframe")
     googleApi.setAttribute("id", "myIframe");
     googleApi.setAttribute("width", "auto");
@@ -196,3 +199,4 @@ function googleCall(){
 
 //search button
 $('.searchBtn').on('click', handleSubmit);
+$(document).on('click', '.historyBtn', handleHistory);
