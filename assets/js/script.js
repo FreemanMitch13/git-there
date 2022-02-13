@@ -32,7 +32,7 @@ function getApi(search) {
     })
     .then(function (data){
         cityNameValue = data[0]["name"];
-        console.log(data);
+        // console.log(data);
         getLatLon(data[0]);
     })
     .catch( error => console.log(error) )
@@ -73,17 +73,19 @@ function getLatLon(location) {
 
         console.log(fiveDayForecast);
         console.log(fiveDayForecast.length);
-        console.log(fiveDayForecast[0]);
+        // console.log(fiveDayForecast[0]);
+        console.log(data.daily[0]);
+        console.log(data.daily[0].weather[0].icon);
 
         for (var i=0; i<fiveDayForecast.length; i++){
 
-            const currentDate = new Date(data['current']['dt'] * 1000);
+            const currentDate = new Date(data['daily'][i]['dt'] * 1000);
             const day = currentDate.getDate();
             const month = currentDate.getMonth() + 1;
             const year = currentDate.getFullYear();
             let date= month + '/' + day + '/' + year;
             
-            let dayImg = data.current.weather[0].icon;
+            let dayImg = data.daily[i].weather[0].icon;
             let dayImgEl = document.createElement('img');
             dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
             dayImgEl.setAttribute('alt', data.current.weather[0].description);
@@ -97,10 +99,10 @@ function getLatLon(location) {
 
             dateEl.textContent = date
             // iconEl=dayImgEl
-            currentTempEl.textContent = "Current Temp: " + data.current.temp;
-            feelsLikeEl.textContent = "Feels Like: " + data.current.feels_like;
-            humidityEl.textContent = "Humidity: " + data.current.humidity;
-            windSpeedEl.textContent= "Wind Speed: " + data.current.wind_speed;
+            currentTempEl.textContent = "Current Temp: " + data.daily[i].temp.day;
+            feelsLikeEl.textContent = "Feels Like: " + data.daily[i].feels_like.day;
+            humidityEl.textContent = "Humidity: " + data.daily[i].humidity;
+            windSpeedEl.textContent= "Wind Speed: " + data.daily[i].wind_speed;
             
             fiveDayForecast[i].innerHTML = "";
             fiveDayForecast[i].append(dateEl);
@@ -134,9 +136,9 @@ function showPosition(position) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
-            console.log(data.current);
-            console.log(data.current.weather[0].icon);
+            // console.log(data)
+            // console.log(data.current);
+            // console.log(data.current.weather[0].icon);
 
             const currentDate = new Date(data['current']['dt'] * 1000);
             const day = currentDate.getDate();
@@ -176,7 +178,7 @@ function googleCall(){
     + "&origin=My%20Location" 
     + "&destination=" + search);
     gMap.append(googleApi);
-    console.log(googleCall)
+    // console.log(googleCall)
    }
 
 
