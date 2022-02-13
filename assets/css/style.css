@@ -14,12 +14,14 @@ body{
 }
 #today-forecast{
     background-color: rgb(190, 130, 148);
+    border-radius: 10px;
 }
-#list-1{
+ #list-1{
     background-color: rgb(162, 176, 153);
     color: white;
+    border-radius: 10px;
 }
-#list-2{
+/*#list-2{
     background-color: rgb(222, 191, 137);
     color: white;
 }
@@ -34,7 +36,7 @@ body{
 #list-5{
     background-color: rgb(190, 130, 148);
     color: white;
-}
+} */
 #forecast-card-1{
     background-color: rgb(162, 176, 153);
     border-color: rgb(255, 218, 147);
@@ -78,4 +80,14 @@ body{
     line-height: 14px;
     font-size: medium;
     padding: 20px;
+    border-radius: 25px;
+}
+.card{
+    border-radius: 10px;
+}
+.gMap{
+    border-radius: 20px;
+}
+.historyBtn{
+    border-radius: 20px;
 }
