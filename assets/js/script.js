@@ -35,7 +35,7 @@ function renderHistory() {
    // for (var i = 0; i < searchHistory.length; i++) {
         const historyItem = document.createElement("button");
         historyItem.setAttribute("type", "button");
-        historyItem.setAttribute("class", "historyBtn btn btn-primary mb-3");
+        historyItem.setAttribute("class", "historyBtn btn btn-secondary m-2");
         historyItem.setAttribute("data-search", searchHistory);
         historyItem.innerHTML = searchHistory;
         $('#historyEl').append(historyItem);
