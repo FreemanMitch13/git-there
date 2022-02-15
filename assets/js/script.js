@@ -102,6 +102,7 @@ function getLatLon(location) {
             
             let dayImg = data.daily[i].weather[0].icon;
             let dayImgEl = document.createElement('img');
+            dayImgEl.setAttribute("class", "img");
             dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
             dayImgEl.setAttribute('alt', data.daily[i].weather[0].description);
 
