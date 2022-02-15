@@ -26,7 +26,6 @@ function handleHistory(event) {
         console.log(search);
         getApi(search);
         googleCall(search);
-
     }
 }
 
@@ -40,7 +39,6 @@ function renderHistory() {
         historyItem.setAttribute("data-search", searchHistory);
         historyItem.innerHTML = searchHistory;
         $('#historyEl').append(historyItem);
-
 }
 
 //api to get lat and lon for weather
@@ -58,7 +56,6 @@ function getApi(search) {
     .catch( error => console.log(error) )
     .finally( console.log('finished with fetch') )
 }
-
 
 function getLatLon(location) {
     var { lat, lon } = location;
@@ -82,15 +79,7 @@ function getLatLon(location) {
             dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
             dayImgEl.setAttribute('alt', data.current.weather[0].description);
 
-            // document.getElementById('date').innerHTML = date;
-            // document.getElementById('icon').append(dayImgEl);
-            // document.getElementById('currentWeather').innerHTML += data.current.temp;
-            // document.getElementById('feels-like').innerHTML += data.current.feels_like;
-            // document.getElementById('humidity').innerHTML += data.current.humidity;
-            // document.getElementById('windSpeed').innerHTML += data.current.wind_speed;
-
         let fiveDayForecast = document.querySelectorAll('div[id^=forecast-card]');
-
     
         for (var i=0; i<fiveDayForecast.length; i++){
 
@@ -102,15 +91,21 @@ function getLatLon(location) {
             
             let dayImg = data.daily[i].weather[0].icon;
             let dayImgEl = document.createElement('img');
+            dayImgEl.setAttribute("class", "img");
             dayImgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + dayImg + '@2x.png');
             dayImgEl.setAttribute('alt', data.daily[i].weather[0].description);
 
             let dateEl = document.createElement('h5');
+            dateEl.setAttribute("class", "cardText");
             // let iconEl = document.createElement('a');
             let currentTempEl = document.createElement('p');
+            currentTempEl.setAttribute("class", "cardText");
             let feelsLikeEl = document.createElement('p');
+            feelsLikeEl.setAttribute("class", "cardText");
             let humidityEl = document.createElement('p');
+            humidityEl.setAttribute("class", "cardText");
             let windSpeedEl = document.createElement('p');
+            windSpeedEl.setAttribute("class", "cardText");
 
             dateEl.textContent = date
             // iconEl=dayImgEl
@@ -127,8 +122,6 @@ function getLatLon(location) {
             fiveDayForecast[i].append(humidityEl);
             fiveDayForecast[i].append(windSpeedEl);
         }
-
-
 })
 }
 
@@ -156,7 +149,7 @@ function showPosition(position) {
         })
         .then(function (data) {
             
-const currentDate = new Date(data['current']['dt'] * 1000);
+            const currentDate = new Date(data['current']['dt'] * 1000);
             const day = currentDate.getDate();
             const month = currentDate.getMonth() + 1;
             const year = currentDate.getFullYear();
@@ -195,7 +188,6 @@ function googleCall(search){
     + "&destination=" + search);
     gMap.append(googleApi);
    }
-
 
 //search button
 $('.searchBtn').on('click', handleSubmit);
