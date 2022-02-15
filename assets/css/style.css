@@ -106,3 +106,8 @@ body{
     font-size: large;
 
 }
+
+.bigImg {
+    margin-left: 2.1rem;
+    text-align: center;
+}
