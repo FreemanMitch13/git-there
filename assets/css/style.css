@@ -21,22 +21,6 @@ body{
     color: white;
     border-radius: 10px;
 }
-/*#list-2{
-    background-color: rgb(222, 191, 137);
-    color: white;
-}
-#list-3{
-    background-color: rgb(255, 218, 147);
-    color: white;
-}
-#list-4{
-    background-color: rgb(251, 170, 125);
-    color: white;
-}
-#list-5{
-    background-color: rgb(190, 130, 148);
-    color: white;
-} */
 #forecast-card-1{
     background-color: rgb(162, 176, 153);
     border-color: rgb(255, 218, 147);
@@ -81,6 +65,7 @@ body{
     font-size: medium;
     padding: 5px;
     border-radius: 25px;
+    text-align: center;
 }
 .card{
     border-radius: 10px;
@@ -94,4 +79,12 @@ body{
 .img{
     width: 80px;
     height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.cardText{
+    margin-left: 10px;
+    text-align: center;
+    font-size: large;
 }
