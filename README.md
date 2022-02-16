@@ -1,12 +1,12 @@
 # Git There
-Using the Google maps API and the Open Weather Map API, the traveller will be able to search to receive directions to the desired destination from their current location. The search will also return the current weather and forecast for the destination.  
+Using the Google maps API and the Open Weather Map API, the traveler will be able to search to receive directions to the desired destination from their current location. The search will also return the current weather and forecast for the destination.  
 
 ## Live Links
 * Published: https://freemanmitch13.github.io/git-there/ 
 * Repository: https://github.com/FreemanMitch13/git-there
 
 ## Description
-As a traveller, I want to be able to search for directions to a destination and also recevive weather conditions so that I can plan accordingly. 
+As a traveler, I want to be able to search for directions to a destination and also recevive weather conditions so that I can plan accordingly. 
 
 ## Criteria
 GIVEN I am using the app to search the weather and directions
@@ -43,7 +43,7 @@ The following image demonstrates map view choices
 * Open Weather API
 
 ## Credits:
-* Sandra Smith
+* Sandra Smith GA Tech
 * Christopher Ponzio https://github.com/ChristopherPonzio
 * Mitchell Freeman https://github.com/FreemanMitch13
 * Harrison Kane https://github.com/FNH57
